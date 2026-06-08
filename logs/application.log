@@ -1,0 +1,33 @@
+2026-06-08T21:49:04.896+07:00  INFO 30676 --- [project] [Test worker] com.project.ProjectApplicationTests      : Starting ProjectApplicationTests using Java 17.0.12 with PID 30676 (started by Admin in E:\JavaWebService\project)
+2026-06-08T21:49:04.899+07:00  INFO 30676 --- [project] [Test worker] com.project.ProjectApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-06-08T21:49:06.082+07:00  INFO 30676 --- [project] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-08T21:49:06.185+07:00  INFO 30676 --- [project] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 5 JPA repository interfaces.
+2026-06-08T21:49:07.440+07:00  INFO 30676 --- [project] [Test worker] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-08T21:49:07.737+07:00  INFO 30676 --- [project] [Test worker] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-06-08T21:49:09.075+07:00  INFO 30676 --- [project] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-08T21:49:09.137+07:00  INFO 30676 --- [project] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-08T21:49:09.765+07:00  INFO 30676 --- [project] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41948c13
+2026-06-08T21:49:09.769+07:00  INFO 30676 --- [project] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-08T21:49:09.882+07:00  WARN 30676 --- [project] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-08T21:49:09.924+07:00  INFO 30676 --- [project] [Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/project_java_web_service?createDatabaseIfNotExist=true]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.44
+	Default catalog/schema: project_java_web_service/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-08T21:49:11.353+07:00  INFO 30676 --- [project] [Test worker] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-08T21:49:11.893+07:00  INFO 30676 --- [project] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-08T21:49:12.038+07:00  INFO 30676 --- [project] [Test worker] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-08T21:49:12.751+07:00  INFO 30676 --- [project] [Test worker] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-08T21:49:12.752+07:00  WARN 30676 --- [project] [Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-08T21:49:12.993+07:00  WARN 30676 --- [project] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-08T21:49:14.573+07:00  INFO 30676 --- [project] [Test worker] com.project.ProjectApplicationTests      : Started ProjectApplicationTests in 10.213 seconds (process running for 12.958)
+2026-06-08T21:49:16.235+07:00  INFO 30676 --- [project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-08T21:49:16.238+07:00  INFO 30676 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-08T21:49:16.245+07:00  INFO 30676 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

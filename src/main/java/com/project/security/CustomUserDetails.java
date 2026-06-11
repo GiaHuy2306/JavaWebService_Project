@@ -1,7 +1,7 @@
 package com.project.security;
 
 import com.project.entity.User;
-import com.project.model.UserStatus;
+import com.project.enums.UserStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,7 +1,7 @@
 package com.project.entity;
 
-import com.project.model.Role;
-import com.project.model.UserStatus;
+import com.project.enums.Role;
+import com.project.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

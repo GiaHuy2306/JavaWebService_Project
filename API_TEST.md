@@ -73,4 +73,45 @@ Khi nop thanh cong, AOP se ghi log: `Candidate ID ... applied for Job ID ...`.
 
 `POST /api/v1/auth/logout`
 
-Access token hien tai se duoc dua vao bang `token_blacklist`.
+Access token hien tai se duoc dua vao Redis blacklist.
+
+## 7. Doi mat khau
+
+`POST /api/v1/auth/change-password`
+
+```json
+{
+  "oldPassword": "123456",
+  "newPassword": "1234567"
+}
+```
+
+## 8. Quen mat khau
+
+`POST /api/v1/auth/forgot-password`
+
+```json
+{
+  "username": "candidate",
+  "email": "candidate@gmail.com"
+}
+```
+
+He thong se tao mat khau tam thoi, cap nhat vao tai khoan va gui mat khau do ve email neu da bat `app.mail.enabled=true` va cau hinh SMTP.
+
+## 9. Admin tim kiem va phan trang user
+
+`GET /api/v1/admin/users?keyword=admin&page=0&size=5`
+
+## 10. Admin doi role cho user
+
+Public register chi tao tai khoan `CANDIDATE`. Neu muon user thanh employer/admin, admin goi:
+
+`PATCH /api/v1/admin/users/{userId}/role`
+
+```json
+{
+  "role": "EMPLOYER",
+  "companyName": "Demo Company"
+}
+```

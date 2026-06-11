@@ -1,6 +1,6 @@
 package com.project.security;
 
-import com.project.repository.TokenBlacklistRepository;
+import com.project.service.RedisTokenBlacklistService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,14 +19,14 @@ import java.io.IOException;
 public class JwtAuthFilter extends OncePerRequestFilter {
     private final JwtProvider jwtProvider;
     private final CustomUserDetailsService userDetailsService;
-    private final TokenBlacklistRepository tokenBlacklistRepository;
+    private final RedisTokenBlacklistService redisTokenBlacklistService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         String token = getToken(request);
 
-        if (token != null && !tokenBlacklistRepository.existsByToken(token)) {
+        if (token != null && !redisTokenBlacklistService.isBlacklisted(token)) {
             try {
                 jwtProvider.validateToken(token);
                 String username = jwtProvider.getUsername(token);

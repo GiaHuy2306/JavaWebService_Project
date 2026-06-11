@@ -2,7 +2,7 @@ package com.project.repository;
 
 import com.project.entity.Job;
 import com.project.entity.User;
-import com.project.model.JobStatus;
+import com.project.enums.JobStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

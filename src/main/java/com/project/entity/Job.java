@@ -1,6 +1,6 @@
 package com.project.entity;
 
-import com.project.model.JobStatus;
+import com.project.enums.JobStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

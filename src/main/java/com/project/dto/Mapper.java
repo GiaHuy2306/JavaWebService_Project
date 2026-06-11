@@ -1,5 +1,8 @@
 package com.project.dto;
 
+import com.project.dto.response.ApplicationResponse;
+import com.project.dto.response.JobResponse;
+import com.project.dto.response.UserResponse;
 import com.project.entity.Job;
 import com.project.entity.JobApplication;
 import com.project.entity.User;

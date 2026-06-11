@@ -1,17 +1,14 @@
-package com.project.dto;
+package com.project.dto.request;
 
-import com.project.model.Role;
+import com.project.enums.UserStatus;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
-public record RegisterRequest(
-        @NotBlank String username,
+public record UserUpdateRequest(
         @NotBlank @Email String email,
-        @NotBlank @Size(min = 6) String password,
         @NotBlank String fullName,
-        @NotNull Role role,
+        @NotNull UserStatus status,
         String companyName
 ) {
 }

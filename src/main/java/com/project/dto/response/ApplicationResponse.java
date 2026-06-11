@@ -1,6 +1,6 @@
-package com.project.dto;
+package com.project.dto.response;
 
-import com.project.model.ApplicationStatus;
+import com.project.enums.ApplicationStatus;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
-package com.project.dto;
+package com.project.dto.request;
 
-import com.project.model.ApplicationStatus;
+import com.project.enums.ApplicationStatus;
 import jakarta.validation.constraints.NotNull;
 
 public record ApplicationStatusRequest(

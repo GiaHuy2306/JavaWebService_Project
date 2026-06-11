@@ -1,6 +1,6 @@
 package com.project.aop;
 
-import com.project.dto.ApplicationResponse;
+import com.project.dto.response.ApplicationResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;

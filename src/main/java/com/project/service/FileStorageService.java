@@ -1,7 +1,7 @@
 package com.project.service;
 
 import com.project.dto.Mapper;
-import com.project.dto.UserResponse;
+import com.project.dto.response.UserResponse;
 import com.project.entity.User;
 import com.project.exception.BadRequestException;
 import com.project.repository.UserRepository;

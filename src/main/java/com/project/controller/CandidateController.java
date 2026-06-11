@@ -1,6 +1,10 @@
 package com.project.controller;
 
-import com.project.dto.*;
+import com.project.dto.request.ApplicationRequest;
+import com.project.dto.response.ApiResponse;
+import com.project.dto.response.ApplicationResponse;
+import com.project.dto.response.JobResponse;
+import com.project.dto.response.UserResponse;
 import com.project.entity.User;
 import com.project.service.ApplicationService;
 import com.project.service.CurrentUserService;

@@ -1,6 +1,6 @@
-package com.project.dto;
+package com.project.dto.response;
 
-import com.project.model.JobStatus;
+import com.project.enums.JobStatus;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

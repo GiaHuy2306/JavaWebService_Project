@@ -1,7 +1,7 @@
-package com.project.dto;
+package com.project.dto.response;
 
-import com.project.model.Role;
-import com.project.model.UserStatus;
+import com.project.enums.Role;
+import com.project.enums.UserStatus;
 
 public record UserResponse(
         Long id,

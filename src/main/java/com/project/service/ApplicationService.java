@@ -1,8 +1,8 @@
 package com.project.service;
 
-import com.project.dto.ApplicationRequest;
-import com.project.dto.ApplicationResponse;
-import com.project.dto.ApplicationStatusRequest;
+import com.project.dto.request.ApplicationRequest;
+import com.project.dto.response.ApplicationResponse;
+import com.project.dto.request.ApplicationStatusRequest;
 import com.project.dto.Mapper;
 import com.project.entity.Job;
 import com.project.entity.JobApplication;
@@ -10,8 +10,8 @@ import com.project.entity.User;
 import com.project.exception.ConflictException;
 import com.project.exception.ForbiddenException;
 import com.project.exception.NotFoundException;
-import com.project.model.ApplicationStatus;
-import com.project.model.JobStatus;
+import com.project.enums.ApplicationStatus;
+import com.project.enums.JobStatus;
 import com.project.repository.JobApplicationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.project.controller;
 
-import com.project.dto.ApiResponse;
-import com.project.dto.JobResponse;
+import com.project.dto.response.ApiResponse;
+import com.project.dto.response.JobResponse;
 import com.project.service.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

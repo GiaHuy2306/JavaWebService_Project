@@ -1,8 +1,8 @@
 package com.project.config;
 
 import com.project.entity.User;
-import com.project.model.Role;
-import com.project.model.UserStatus;
+import com.project.enums.Role;
+import com.project.enums.UserStatus;
 import com.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;

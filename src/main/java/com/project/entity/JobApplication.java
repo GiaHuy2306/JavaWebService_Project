@@ -1,6 +1,6 @@
 package com.project.entity;
 
-import com.project.model.ApplicationStatus;
+import com.project.enums.ApplicationStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

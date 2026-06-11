@@ -1,13 +1,13 @@
 package com.project.service;
 
-import com.project.dto.JobRequest;
-import com.project.dto.JobResponse;
+import com.project.dto.request.JobRequest;
+import com.project.dto.response.JobResponse;
 import com.project.dto.Mapper;
 import com.project.entity.Job;
 import com.project.entity.User;
 import com.project.exception.ForbiddenException;
 import com.project.exception.NotFoundException;
-import com.project.model.JobStatus;
+import com.project.enums.JobStatus;
 import com.project.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

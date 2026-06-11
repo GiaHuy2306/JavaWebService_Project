@@ -94,7 +94,8 @@ public class AuthService {
 
         User user = refreshToken.getUser();
         String accessToken = jwtProvider.generateToken(user);
-        return new AuthResponse(accessToken, refreshToken.getToken(), "Bearer", Mapper.toUserResponse(user));
+        String newRefreshToken = rotateRefreshToken(refreshToken);
+        return new AuthResponse(accessToken, newRefreshToken, "Bearer", Mapper.toUserResponse(user));
     }
 
     @Transactional
@@ -144,6 +145,12 @@ public class AuthService {
                 .user(user)
                 .expiryDate(LocalDateTime.now().plusNanos(refreshExpired * 1_000_000))
                 .build();
+        return refreshTokenRepository.save(refreshToken).getToken();
+    }
+
+    private String rotateRefreshToken(RefreshToken refreshToken) {
+        refreshToken.setToken(UUID.randomUUID().toString());
+        refreshToken.setExpiryDate(LocalDateTime.now().plusNanos(refreshExpired * 1_000_000));
         return refreshTokenRepository.save(refreshToken).getToken();
     }
 }

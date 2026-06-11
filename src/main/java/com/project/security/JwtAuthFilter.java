@@ -28,12 +28,13 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         if (token != null && !redisTokenBlacklistService.isBlacklisted(token)) {
             try {
-                jwtProvider.validateToken(token);
-                String username = jwtProvider.getUsername(token);
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (jwtProvider.validateToken(token)) {
+                    String username = jwtProvider.getUsername(token);
+                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
             } catch (RuntimeException ex) {
                 SecurityContextHolder.clearContext();
             }

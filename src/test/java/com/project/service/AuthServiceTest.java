@@ -2,7 +2,9 @@ package com.project.service;
 
 import com.project.dto.request.ChangePasswordRequest;
 import com.project.dto.request.ForgotPasswordRequest;
+import com.project.dto.request.RefreshTokenRequest;
 import com.project.dto.request.RegisterRequest;
+import com.project.entity.RefreshToken;
 import com.project.entity.User;
 import com.project.exception.BadRequestException;
 import com.project.exception.ConflictException;
@@ -18,7 +20,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.test.util.ReflectionTestUtils;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -108,6 +112,28 @@ class AuthServiceTest {
         assertEquals("encoded-new", user.getPassword());
         verify(userRepository).save(user);
         verify(emailService).sendTemporaryPassword(eq("candidate@gmail.com"), anyString());
+    }
+
+    @Test
+    void refreshRotatesRefreshToken() {
+        User user = sampleUser();
+        RefreshToken refreshToken = RefreshToken.builder()
+                .id(1L)
+                .token("old-refresh-token")
+                .user(user)
+                .expiryDate(LocalDateTime.now().plusMinutes(5))
+                .build();
+        ReflectionTestUtils.setField(authService, "refreshExpired", 604800000L);
+        when(refreshTokenRepository.findByToken("old-refresh-token")).thenReturn(Optional.of(refreshToken));
+        when(jwtProvider.generateToken(user)).thenReturn("new-access-token");
+        when(refreshTokenRepository.save(refreshToken)).thenReturn(refreshToken);
+
+        var response = authService.refresh(new RefreshTokenRequest("old-refresh-token"));
+
+        assertEquals("new-access-token", response.accessToken());
+        assertNotEquals("old-refresh-token", response.refreshToken());
+        assertEquals(response.refreshToken(), refreshToken.getToken());
+        verify(refreshTokenRepository).save(refreshToken);
     }
 
     private User sampleUser() {

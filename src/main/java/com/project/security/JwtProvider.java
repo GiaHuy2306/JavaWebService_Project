@@ -2,6 +2,7 @@ package com.project.security;
 
 import com.project.entity.User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,8 +36,12 @@ public class JwtProvider {
     }
 
     public boolean validateToken(String token) {
-        Jwts.parser().verifyWith(getKey()).build().parseSignedClaims(token);
-        return true;
+        try {
+            Jwts.parser().verifyWith(getKey()).build().parseSignedClaims(token);
+            return true;
+        } catch (JwtException | IllegalArgumentException ex) {
+            return false;
+        }
     }
 
     public String getUsername(String token) {
